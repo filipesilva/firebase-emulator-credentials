@@ -4,8 +4,8 @@ admin.initializeApp();
 
 exports.helloWorld = functions.https.onRequest(async (request, response) => {
   const db = admin.database();
-  const ref = await db.ref('auth-test').set({
+  const ref = await db.ref('auth-test').push({
     date: new Date().toISOString()
   });
-  response.send(`Added: ${ref.id}`);
+  response.send(`Added: ${ref}`);
 });
